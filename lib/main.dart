@@ -11,7 +11,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
       ),
       home: Scaffold(
-        backgroundColor: Colors.blueGrey[200],
+        backgroundColor: Colors.blueGrey[100],
         appBar: AppBar(
           backgroundColor: Colors.blueGrey[900],
           title: Row(
@@ -28,7 +28,7 @@ class App extends StatelessWidget {
             ],
           ),
         ),
-        body: LoginPage(),
+        body: SafeArea(child: LoginPage()),
       ),
     );
   }
@@ -79,27 +79,24 @@ class _LoginPageState extends State<LoginPage> {
               padding: EdgeInsets.fromLTRB(15, 10, 10, 0),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: Colors.blueGrey.shade300
-              ),
+                  color: Colors.blueGrey.shade200),
               child: TextFormField(
-
                 keyboardType: TextInputType.text,
                 controller: userNameController,
                 obscureText: !_passwordVisible,
                 decoration: InputDecoration(
-                  border: InputBorder.none,
-                    labelText: 'User Name', hintText: 'Enter your Email'),
+                    border: InputBorder.none,
+                    labelText: 'User Name',
+                    hintText: 'Enter your Email'),
               ),
             ),
             Container(
               height: 65,
               padding: EdgeInsets.fromLTRB(15, 10, 10, 0),
               margin: EdgeInsets.symmetric(vertical: 0),
-
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.blueGrey.shade300
-              ),
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.blueGrey.shade200),
               child: TextFormField(
                 keyboardType: TextInputType.text,
                 controller: passwordController,
@@ -124,17 +121,17 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            TextButton(
-              style: TextButton.styleFrom(
-                shadowColor: Colors.black
-              ),
+            Container(
+              padding: EdgeInsets.fromLTRB(138, 0, 138, 0),
+            child: TextButton(
+              style: TextButton.styleFrom(shadowColor: Colors.black),
               onPressed: () {
                 //forgot password screen
               },
-              child: const Text(
+              child: Text(
                 'Forgot Password!',
-
               ),
+            ),
             ),
             Container(
                 height: 50,
@@ -146,12 +143,13 @@ class _LoginPageState extends State<LoginPage> {
                           EdgeInsets.all(10)),
                       foregroundColor:
                           MaterialStateProperty.all<Color>(Colors.black54),
-                      backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.blueGrey.shade200),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          Colors.blueGrey.shade400),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                              side: BorderSide(color: Colors.blueGrey.shade600)))),
+                              borderRadius: BorderRadius.circular(28.0),
+                              side: BorderSide(
+                                  color: Colors.blueGrey.shade500)))),
                   onPressed: () {
                     print(userNameController.text);
                     print(passwordController.text);
@@ -159,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
                 )),
             Row(
               children: <Widget>[
-                const Text('Does not have account?'),
+                Text('Don\'t you have account?'),
                 TextButton(
                   child: Text(
                     'Sign up',

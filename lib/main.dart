@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:moon/signUpPage.dart';
 
-void main() => runApp(const App());
+void main() => runApp(const RunLog());
 
-class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+class RunLog extends StatelessWidget {
+  const RunLog({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        pageTransitionsTheme: PageTransitionsTheme(builders: {TargetPlatform.android: CupertinoPageTransitionsBuilder(),}),
+
         primarySwatch: Colors.blueGrey,
       ),
       home: Scaffold(
@@ -28,7 +31,7 @@ class App extends StatelessWidget {
             ],
           ),
         ),
-        body: SafeArea(child: LoginPage()),
+        body: SingleChildScrollView(child: LoginPage()),
       ),
     );
   }
@@ -54,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Padding(
         padding: EdgeInsets.all(10),
-        child: ListView(
+        child: Column(
           children: <Widget>[
             Container(
                 padding: EdgeInsets.all(10),
@@ -83,11 +86,10 @@ class _LoginPageState extends State<LoginPage> {
               child: TextFormField(
                 keyboardType: TextInputType.text,
                 controller: userNameController,
-                obscureText: !_passwordVisible,
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     labelText: 'User Name',
-                    hintText: 'Enter your Email'),
+                    hintText: 'Enter your ID'),
               ),
             ),
             Container(
@@ -123,21 +125,26 @@ class _LoginPageState extends State<LoginPage> {
             ),
             Container(
               padding: EdgeInsets.fromLTRB(138, 0, 138, 0),
-            child: TextButton(
-              style: TextButton.styleFrom(shadowColor: Colors.black),
-              onPressed: () {
-                //forgot password screen
-              },
-              child: Text(
-                'Forgot Password!',
+              child: TextButton(
+                style: TextButton.styleFrom(shadowColor: Colors.black),
+                onPressed: () {
+                  //forgot password screen
+                },
+                child: Text(
+                  'Forgot Password!',
+                ),
               ),
             ),
-            ),
             Container(
+                width: 350,
                 height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: TextButton(
-                  child: Text('Login'),
+                  child: Text(
+                    'Login',
+                    style:
+                        TextStyle(color: Colors.blueGrey.shade50, fontSize: 16),
+                  ),
                   style: ButtonStyle(
                       padding: MaterialStateProperty.all<EdgeInsets>(
                           EdgeInsets.all(10)),
@@ -164,7 +171,16 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(fontSize: 22),
                   ),
                   onPressed: () {
-                    //signup screen
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (_, __, ___) => RunSign(),
+                        transitionDuration: Duration(milliseconds: 300),
+                        transitionsBuilder: (_, a, __, c) => FadeTransition(opacity: a, child: c),
+                      ),
+
+                    );
                   },
                 )
               ],

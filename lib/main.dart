@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:moon/signUpPage.dart';
 
+import 'mainPage.dart';
 void main() => runApp(const RunLog());
-
+bool dMode=false;
 class RunLog extends StatelessWidget {
   const RunLog({Key? key}) : super(key: key);
   @override
@@ -14,7 +15,7 @@ class RunLog extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
       ),
       home: Scaffold(
-        backgroundColor: Colors.blueGrey[100],
+        backgroundColor: dMode ? Colors.blueGrey[900] : Colors.blueGrey[100],
         appBar: AppBar(
           backgroundColor: Colors.blueGrey[900],
           title: Row(
@@ -158,8 +159,16 @@ class _LoginPageState extends State<LoginPage> {
                               side: BorderSide(
                                   color: Colors.blueGrey.shade500)))),
                   onPressed: () {
-                    print(userNameController.text);
-                    print(passwordController.text);
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (_, __, ___) => RunMain(),
+                        transitionDuration: Duration(milliseconds: 400),
+                        transitionsBuilder: (_, a, __, c) => FadeTransition(opacity: a, child: c),
+                      ),
+
+                    );
                   },
                 )),
             Row(

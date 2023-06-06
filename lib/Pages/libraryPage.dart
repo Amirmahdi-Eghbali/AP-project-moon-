@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../main.dart';
 import '../mainPage.dart';
 import 'book.dart';
+import 'bookPage.dart';
 
 class LibraryPage extends StatefulWidget {
   const LibraryPage({Key? key}) : super(key: key);
@@ -65,7 +66,16 @@ class _LibraryPageState extends State<LibraryPage>{
                           Column(children: [
                             InkWell(
                               onTap: () {
-
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (_, __, ___) => BookPage(book: book),
+                                    transitionDuration:
+                                    Duration(milliseconds: 400),
+                                    transitionsBuilder: (_, a, __, c) =>
+                                        FadeTransition(opacity: a, child: c),
+                                  ),
+                                );
                               },
 
                               child: Card(

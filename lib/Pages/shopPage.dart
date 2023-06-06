@@ -3,6 +3,7 @@ import 'package:moon/Pages/book.dart';
 
 import '../main.dart';
 import '../mainPage.dart';
+import 'bookPage.dart';
 
 int bookID = 0;
 
@@ -90,7 +91,16 @@ class _ShopPageState extends State<ShopPage> {
                         Column(children: [
                           InkWell(
                             onTap: () {
-
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                  pageBuilder: (_, __, ___) => BookPage(book: book),
+                                  transitionDuration:
+                                  Duration(milliseconds: 400),
+                                  transitionsBuilder: (_, a, __, c) =>
+                                      FadeTransition(opacity: a, child: c),
+                                ),
+                              );
                             },
 
                               child: Card(

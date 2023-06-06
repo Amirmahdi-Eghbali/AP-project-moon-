@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moon/Pages/bookPage.dart';
 
 import '../main.dart';
 import '../mainPage.dart';
@@ -65,7 +66,7 @@ class _HomePageState extends State<HomePage>
                                   Navigator.push(
                                     context,
                                     PageRouteBuilder(
-                                      pageBuilder: (_, __, ___) => RunLog(),
+                                      pageBuilder: (_, __, ___) => BookPage(book: book),
                                       transitionDuration:
                                           Duration(milliseconds: 400),
                                       transitionsBuilder: (_, a, __, c) =>
@@ -109,13 +110,6 @@ class _HomePageState extends State<HomePage>
                     height: 15,
                   ),
 
-
-
-
-
-
-
-
                     TabBar(
                       labelColor: darkMode? Colors.blueGrey.shade50:Colors.blueGrey.shade800,
                       controller: _tabController,
@@ -155,7 +149,7 @@ class _HomePageState extends State<HomePage>
                                 Navigator.push(
                                   context,
                                   PageRouteBuilder(
-                                    pageBuilder: (_, __, ___) => RunLog(),
+                                    pageBuilder: (_, __, ___) => BookPage(book: book),
                                     transitionDuration:
                                     Duration(milliseconds: 400),
                                     transitionsBuilder: (_, a, __, c) =>
@@ -223,7 +217,7 @@ class _HomePageState extends State<HomePage>
                                         Navigator.push(
                                           context,
                                           PageRouteBuilder(
-                                            pageBuilder: (_, __, ___) => RunLog(),
+                                            pageBuilder: (_, __, ___) => BookPage(book: book),
                                             transitionDuration:
                                             Duration(milliseconds: 400),
                                             transitionsBuilder: (_, a, __, c) =>
@@ -291,7 +285,7 @@ class _HomePageState extends State<HomePage>
                                         Navigator.push(
                                           context,
                                           PageRouteBuilder(
-                                            pageBuilder: (_, __, ___) => RunLog(),
+                                            pageBuilder: (_, __, ___) => BookPage(book: book),
                                             transitionDuration:
                                             Duration(milliseconds: 400),
                                             transitionsBuilder: (_, a, __, c) =>
@@ -360,7 +354,7 @@ class _HomePageState extends State<HomePage>
                                               Navigator.push(
                                                 context,
                                                 PageRouteBuilder(
-                                                  pageBuilder: (_, __, ___) => RunLog(),
+                                                  pageBuilder: (_, __, ___) => BookPage(book: book),
                                                   transitionDuration:
                                                   Duration(milliseconds: 400),
                                                   transitionsBuilder: (_, a, __, c) =>
@@ -428,7 +422,7 @@ class _HomePageState extends State<HomePage>
                                               Navigator.push(
                                                 context,
                                                 PageRouteBuilder(
-                                                  pageBuilder: (_, __, ___) => RunLog(),
+                                                  pageBuilder: (_, __, ___) => BookPage(book: book),
                                                   transitionDuration:
                                                   Duration(milliseconds: 400),
                                                   transitionsBuilder: (_, a, __, c) =>
@@ -496,7 +490,7 @@ class _HomePageState extends State<HomePage>
                                               Navigator.push(
                                                 context,
                                                 PageRouteBuilder(
-                                                  pageBuilder: (_, __, ___) => RunLog(),
+                                                  pageBuilder: (_, __, ___) => BookPage(book: book),
                                                   transitionDuration:
                                                   Duration(milliseconds: 400),
                                                   transitionsBuilder: (_, a, __, c) =>

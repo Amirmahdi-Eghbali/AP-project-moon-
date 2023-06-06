@@ -15,7 +15,7 @@ class RunLog extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
       ),
       home: Scaffold(
-        backgroundColor: dMode ? Colors.blueGrey[900] : Colors.blueGrey[100],
+        backgroundColor: darkMode ? Colors.blueGrey[900] : Colors.blueGrey[100],
         appBar: AppBar(
           backgroundColor: Colors.blueGrey[900],
           title: Row(
@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text(
                   'moon liberary',
                   style: TextStyle(
-                      color: Colors.blueGrey[900],
+                      color: darkMode ? Colors.blueGrey[100] : Colors.blueGrey[800],
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
@@ -75,7 +75,9 @@ class _LoginPageState extends State<LoginPage> {
                 padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: Text(
                   'Login',
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(fontSize: 25,
+                    color: darkMode ? Colors.blueGrey[100] : Colors.blueGrey[800],
+                  ),
                 )),
             Container(
               height: 65,
@@ -133,6 +135,10 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 child: Text(
                   'Forgot Password!',
+                  style: TextStyle(
+                    color: darkMode ? Colors.blueGrey[100] : Colors.blueGrey[800],
+
+                  ),
                 ),
               ),
             ),
@@ -144,7 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text(
                     'Login',
                     style:
-                        TextStyle(color: Colors.blueGrey.shade50, fontSize: 16),
+                        TextStyle(color: Colors.blueGrey.shade50, fontSize: 18),
                   ),
                   style: ButtonStyle(
                       padding: MaterialStateProperty.all<EdgeInsets>(
@@ -152,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                       foregroundColor:
                           MaterialStateProperty.all<Color>(Colors.black54),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          Colors.blueGrey.shade400),
+                          Colors.blueGrey.shade500),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(28.0),
@@ -173,11 +179,16 @@ class _LoginPageState extends State<LoginPage> {
                 )),
             Row(
               children: <Widget>[
-                Text('Don\'t you have account?'),
+                Text('Don\'t you have account?',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: darkMode ? Colors.blueGrey[100] : Colors.blueGrey[800],
+                ),),
                 TextButton(
                   child: Text(
                     'Sign up',
-                    style: TextStyle(fontSize: 22),
+                    style: TextStyle(fontSize: 22,
+                        fontWeight: FontWeight.bold),
                   ),
                   onPressed: () {
                     Navigator.pop(context);

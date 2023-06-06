@@ -4,7 +4,6 @@ import 'package:moon/Pages/accountPage.dart';
 import 'package:moon/Pages/homePage.dart';
 import 'package:moon/Pages/libraryPage.dart';
 import 'package:moon/Pages/shopPage.dart';
-import 'main.dart';
 
 class RunMain extends StatelessWidget {
   const RunMain({Key? key}) : super(key: key);
@@ -12,6 +11,8 @@ class RunMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       theme: ThemeData(
         pageTransitionsTheme: PageTransitionsTheme(builders: {
           TargetPlatform.android: CupertinoPageTransitionsBuilder(),
@@ -49,6 +50,7 @@ class MainPage extends StatefulWidget {
 }
 
   bool darkMode = false;
+  int _selectedIndex = 0;
 class _MainPageState extends State<MainPage> {
 
 
@@ -60,16 +62,16 @@ class _MainPageState extends State<MainPage> {
     AccountPage(),
   ];
 
-  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: darkMode ? Colors.blueGrey[900] : Colors.blueGrey[100],
         body: _pages[_selectedIndex],
         bottomNavigationBar: Container(
+
             color: Colors.blueGrey.shade900,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+
               child: GNav(
                 selectedIndex: _selectedIndex,
                 onTabChange: (index) {
@@ -99,7 +101,7 @@ class _MainPageState extends State<MainPage> {
                   ),
                   GButton(
                     icon: Icons.account_circle,
-                    text: 'Account',
+                    text: 'My moon',
                   ),
                 ],
               ),

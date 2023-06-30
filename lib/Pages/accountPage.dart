@@ -143,6 +143,11 @@ class _AccountPageState extends State<AccountPage> {
                       child: Stack(
                         children: <Widget>[
                           AnimatedPositioned(
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.easeIn,
+                            top: 3,
+                            left: toggleValue ? 60 : 0,
+                            right: toggleValue ? 0 : 60,
                             child: InkWell(
                               onTap: toggleButton,
                               child: AnimatedSwitcher(
@@ -157,11 +162,6 @@ class _AccountPageState extends State<AccountPage> {
                                   )
                               ),
                             ),
-                            duration: Duration(milliseconds: 500),
-                            curve: Curves.easeIn,
-                            top: 3,
-                            left: toggleValue ? 60 : 0,
-                            right: toggleValue ? 0 : 60,
                           )
                         ],
                       ),

@@ -77,27 +77,30 @@ class _HomePageState extends State<HomePage>
                                 child: Card(
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15),
+
                                   ),
 
                                   color: darkMode
                                       ? Colors.blueGrey.shade700
                                       : Colors.blueGrey.shade600,
                                   child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
                                     children: [
                                       Image.asset(
                                         book.image,
                                         height: 160,
                                       ),
-                                      Text(
-                                        book.name,
-                                        textAlign: TextAlign.end,
-                                        style: TextStyle(
-                                            fontSize: 18.0,
-                                            color: darkMode
-                                                ? Colors.blueGrey.shade100
-                                                : Colors.blueGrey.shade50),
+                                      Padding(padding:EdgeInsets.all(8)),
+                                      Flexible(
+                                        child: Text(
+                                          book.name,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            textBaseline: TextBaseline.ideographic,
+                                              fontSize: 18.0,
+                                              color: darkMode
+                                                  ? Colors.blueGrey.shade100
+                                                  : Colors.blueGrey.shade50),
+                                        ),
                                       ),
 
                                     ],
@@ -118,7 +121,7 @@ class _HomePageState extends State<HomePage>
                     ),
             Container(
 
-                height: 840,
+                height: 880,
                   child: TabBarView(
                       controller: _tabController,
                       children: <Widget>[

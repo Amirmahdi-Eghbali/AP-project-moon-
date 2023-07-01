@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moon/Pages/PDFViewer.dart';
 import 'package:moon/Pages/book.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../mainPage.dart';
@@ -138,11 +139,10 @@ class BookPage extends StatelessWidget {
                                     side: BorderSide(
                                         color: Colors.blueGrey.shade500)))),
                     onPressed: () {
-                      Navigator.pop(context);
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => RunMain(),
+                          pageBuilder: (_, __, ___) => PDFViewer(),
                           transitionDuration: Duration(milliseconds: 400),
                           transitionsBuilder: (_, a, __, c) =>
                               FadeTransition(opacity: a, child: c),

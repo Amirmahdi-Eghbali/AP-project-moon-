@@ -21,14 +21,19 @@ public class ClientHandler extends Thread{
         DataInputStream dis=new DataInputStream(socket.getInputStream());
         DataOutputStream dos=new DataOutputStream(socket.getOutputStream());
 
-        String request= dis.readUTF();
-        Scanner sc=new Scanner(request);
+        StringBuilder request=new StringBuilder();
+        int c = dis.read();
+        while (c!=0){
+            request.append((char) c);
+            c=dis.read();
+        }
+        Scanner sc =new Scanner(request.toString());
         String command=sc.nextLine();
         String data=sc.nextLine();
 
         String response= new Controller().run(command,data);
 
-        dos.writeUTF(response);
+        dos.writeByte(Integer.parseInt(response));
         dos.flush();
 
         dis.close();
